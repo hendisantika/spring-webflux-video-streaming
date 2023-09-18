@@ -7,6 +7,8 @@ import org.springframework.core.io.Resource;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
+import java.time.LocalDateTime;
+
 /**
  * Created by IntelliJ IDEA.
  * Project : spring-webflux-video-streaming
@@ -29,5 +31,11 @@ public class StreamingController {
     public Mono<Resource> getVideo(@PathVariable String title, @RequestHeader("Range") String range) {
         log.info(range);
         return streamingService.getVideo(title);
+    }
+
+    @GetMapping(value = "/test")
+    public Mono<String> index() {
+        log.info("Testing ...");
+        return Mono.just("Coba-coba " + LocalDateTime.now());
     }
 }
