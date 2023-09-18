@@ -31,7 +31,7 @@ public class FunctionalEndPointConfig {
     @Bean
     public RouterFunction<ServerResponse> router() {
         return RouterFunctions.route()
-                .GET("fun-ep/video/{title}", this::videoHandler)
+                .GET("/video/{title}", this::videoHandler)
                 .build();
     }
 
